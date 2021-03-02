@@ -8,7 +8,7 @@ In this demo I tried 3 approaches;
 
 - NGINX config file, rederict all 404 to index of home page. This approach changes the url in the addressbar too, so it is clear that user is send back to home page. This could be confusing in some situations. There is one caviat: if you running nginx in the container on different port than 80 you will need to add support for that port? This demo solution works only if nginx is on default port (80).
 
-- Custom next error page. In this case we create 404.js in the page directory and write additional code which tries to redirect user using next router prior to showing 404 error. During the attempt one additional parameter is attached (deeplink=true) to url. This information is used to determine if the rederect attempt is already perfomed. If the user comes back with "404?redirect=true" we assume that redirect failed and show the 404 page content. With this approach NGINX setup does not have to use rewrites or redirect.
+- Custom next error page. In this case we create 404.js in the page directory and write additional code which tries to redirect user using next router prior to showing 404 error. During the attempt one additional parameter is attached (deeplink=true) to url. This information is used to determine if the rederect attempt is already perfomed. If the user comes back with "404?redirect=true" we assume that redirect failed and show the 404 page content. With this approach NGINX setup does not have to use rewrites or redirect. It does need to redirect to 404 page where next code will take care about the rest of the process.
 
 ## Build docker image
 
