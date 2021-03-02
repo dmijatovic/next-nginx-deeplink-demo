@@ -1,4 +1,4 @@
-# NextJS broadcast sample
+# Next SSG deep linking dynamic pages demo
 
 This is simple deep linking demo using nginx server. It explores different approaches for handling 404 pages on SSG site witch uses dynamic routes and needs to support deep linking (eg. direct access to http://client/1/article/6 for example). When using SSG with nginx with basic definitions the attempt to access deep linked content will produce 404 page. The problem is that dynamic pages when generated have physical route http://client/[cid]/article[aid]. In other words the route /client/1/article/2 does not exist. Next JS router knows that [cid] and [aid] are dynamic parts of the route and substitute these. Nginx does not have this information and returns 404.
 
